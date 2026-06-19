@@ -1,0 +1,12 @@
+# Web framework
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+pydantic
+python-dotenv==1.0.1
+python-multipart==0.0.12
+
+# Gemini (default provider — free tier available, supports Gemini 2.5 Flash)
+google-genai>=1.0.0
+
+# Anthropic / Claude (optional — only needed if LLM_PROVIDER=anthropic)
+# anthropic>=0.40.0
