@@ -13,6 +13,7 @@ import os
 import uuid
 import hashlib
 import secrets
+import traceback
 from datetime import datetime, timezone
 from typing import Optional, Literal
 from collections import defaultdict
@@ -191,6 +192,7 @@ async def chat(req: SendMessageRequest):
     try:
         result = run_agent(llm_history)
     except Exception as e:
+        traceback.print_exc()
         raise HTTPException(status_code=500, detail=f"Agent error: {str(e)}")
 
     # Persist the full LLM history (includes tool call turns) for next round

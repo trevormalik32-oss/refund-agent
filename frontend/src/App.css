@@ -219,6 +219,50 @@ button { cursor: pointer; font-family: inherit; }
   transition: all 0.15s;
 }
 .starter-btn:hover { background: var(--bg-hover); border-color: var(--accent-glow); color: var(--text-1); }
+
+/* Ticket lookup */
+.lookup-section { margin-top: 20px; text-align: left; }
+.lookup-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  color: var(--text-3);
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.lookup-divider::before,
+.lookup-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--bg-border);
+}
+.lookup-row {
+  display: flex;
+  gap: 8px;
+}
+.lookup-input {
+  flex: 1;
+  background: var(--bg-input);
+  border: 1px solid var(--bg-border);
+  border-radius: var(--r-sm);
+  color: var(--text-1);
+  font-family: inherit;
+  font-size: 13px;
+  padding: 7px 12px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+.lookup-input::placeholder { color: var(--text-3); }
+.lookup-input:focus { border-color: var(--accent-glow); }
+.lookup-input:disabled { opacity: 0.5; }
+.lookup-error {
+  margin-top: 8px;
+  color: var(--red);
+  font-size: 12px;
+}
 .starter-label { font-weight: 600; color: var(--text-1); display: block; margin-bottom: 2px; font-size: 12px; }
 
 /* Message bubbles */

@@ -55,9 +55,9 @@ A production-grade AI customer support agent that processes or denies e-commerce
 ## Quick Start
 
 ### Prerequisites
-- Python 3.10+
+- Python 3.10–3.13 (3.14 not yet supported by pydantic-core)
 - Node.js 18+
-- An Anthropic API key ([get one here](https://console.anthropic.com))
+- A Gemini API key (default) **or** an Anthropic API key
 
 ### 1. Clone & configure
 ```bash
@@ -66,7 +66,8 @@ cd refund-agent
 
 # Set your API key
 cp backend/.env.example backend/.env
-# Edit backend/.env and set ANTHROPIC_API_KEY=sk-ant-...
+# Edit backend/.env — set GEMINI_API_KEY (default) or ANTHROPIC_API_KEY
+# Also set ADMIN_PASSWORD for the admin portal
 ```
 
 ### 2. Start backend
@@ -126,6 +127,18 @@ chmod +x start.sh && ./start.sh
 
 ---
 
+## Ticket Resume
+
+Customers can return to a previous conversation in two ways:
+
+1. **Automatic** — The frontend saves the active ticket ID to `localStorage`. On the next visit, the conversation is silently restored. If the backend no longer has the ticket (e.g. server restarted), the stale entry is cleared and the welcome screen is shown.
+
+2. **Manual** — The welcome screen includes a "resume a previous conversation" field where customers can enter a ticket number (e.g. `TKT-AB12CD34`) to reload any prior chat.
+
+Clicking **New request** clears localStorage so the next visit starts fresh.
+
+---
+
 ## Agent Resilience
 
 The agent resists manipulation through:
@@ -143,20 +156,29 @@ The agent resists manipulation through:
 
 ## API Reference
 
+### Public endpoints
 | Endpoint | Method | Description |
 |----------|--------|-------------|
-| `/api/chat` | POST | Send message to agent |
-| `/api/session/{id}` | DELETE | Clear session |
-| `/api/session/{id}/logs` | GET | Session-specific logs |
-| `/api/admin/logs` | GET | All interaction logs + traces |
+| `/api/chat` | POST | Send message to agent; omit `ticket_id` to open a new ticket |
+| `/api/chat/{ticket_id}` | GET | Retrieve message history for a ticket |
+| `/api/chat/{ticket_id}/close` | POST | Customer closes their ticket |
+| `/api/admin/login` | POST | Get an admin Bearer token |
+| `/api/health` | GET | Health check + active model info |
+
+### Admin endpoints (Bearer token required)
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/api/admin/logout` | POST | Invalidate token |
+| `/api/admin/tickets` | GET | All tickets, sorted newest first |
+| `/api/admin/tickets/{ticket_id}` | GET | Full ticket detail including reasoning trace |
+| `/api/admin/stats` | GET | Counts by status/resolution, token totals |
 | `/api/admin/customers` | GET | CRM customer list |
 | `/api/admin/policy` | GET | Policy document |
-| `/api/health` | GET | Health check |
 
 ### Chat request
 ```json
 {
-  "session_id": "optional-uuid",
+  "ticket_id": "TKT-AB12CD34",
   "message": "Hi, I'm Alice Johnson and I'd like a refund on ORD-10021"
 }
 ```
@@ -164,18 +186,14 @@ The agent resists manipulation through:
 ### Chat response
 ```json
 {
-  "session_id": "uuid",
+  "ticket_id": "TKT-AB12CD34",
+  "status": "resolved",
+  "resolution": "approved",
   "reply": "Agent response text...",
-  "trace": [
-    {"type": "llm_call", "input_tokens": 850, "output_tokens": 45, "latency_ms": 420},
-    {"type": "tool_call", "tool": "lookup_customer", "input": {...}, "output": {...}, "latency_ms": 3},
-    {"type": "tool_call", "tool": "check_refund_eligibility", "input": {...}, "output": {...}, "latency_ms": 2},
-    {"type": "llm_call", "input_tokens": 1100, "output_tokens": 180, "latency_ms": 890},
-    {"type": "final_response", "latency_ms": 1315}
-  ],
-  "total_input_tokens": 1950,
-  "total_output_tokens": 225,
-  "total_latency_ms": 1315
+  "messages": [
+    {"role": "user", "content": "...", "timestamp": "2024-01-01T12:00:00Z"},
+    {"role": "assistant", "content": "...", "timestamp": "2024-01-01T12:00:01Z"}
+  ]
 }
 ```
 
@@ -201,22 +219,23 @@ The agent resists manipulation through:
 ```
 refund-agent/
 ├── backend/
-│   ├── main.py          # FastAPI app + endpoints
-│   ├── agent.py         # Agentic loop with tool-use
-│   ├── database.py      # CRM data access + policy checks
+│   ├── main.py          # FastAPI app + endpoints + in-memory ticket store
+│   ├── agent.py         # Agentic loop — Gemini/Anthropic provider abstraction
+│   ├── database.py      # CRM data access + policy checks (no LLM)
 │   ├── requirements.txt
 │   └── .env.example
 ├── frontend/
 │   ├── src/
-│   │   ├── App.js       # Root component + nav
-│   │   ├── App.css      # Full design system
+│   │   ├── App.js       # Route: / → CustomerChat, /admin → Admin
+│   │   ├── App.css      # Full design system (CSS vars, components)
 │   │   └── components/
-│   │       ├── ChatWindow.js      # Customer chat + trace panel
-│   │       └── AdminDashboard.js  # Logs, CRM, policy views
+│   │       ├── CustomerChat.js  # Public chat UI; auto-resumes from localStorage
+│   │       ├── AdminLogin.js    # Password login page at /admin
+│   │       └── AdminShell.js   # Protected dashboard: tickets, trace, stats
 │   ├── public/index.html
 │   └── package.json
 ├── data/
-│   ├── crm_database.json   # 15 customer profiles
+│   ├── crm_database.json   # 15 synthetic customer profiles
 │   └── refund_policy.txt   # Corporate policy doc
 ├── start.sh
 └── README.md

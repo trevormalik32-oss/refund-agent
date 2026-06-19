@@ -21,16 +21,56 @@ function formatTime(iso) {
 }
 
 export default function CustomerChat() {
-  const [messages, setMessages]     = useState([]);
-  const [ticketId, setTicketId]     = useState(null);
-  const [status, setStatus]         = useState(null);
-  const [resolution, setResolution] = useState(null);
-  const [input, setInput]           = useState('');
-  const [loading, setLoading]       = useState(false);
+  const [messages, setMessages]       = useState([]);
+  const [ticketId, setTicketId]       = useState(null);
+  const [status, setStatus]           = useState(null);
+  const [resolution, setResolution]   = useState(null);
+  const [input, setInput]             = useState('');
+  const [loading, setLoading]         = useState(false);
+  const [lookupInput, setLookupInput] = useState('');
+  const [lookupError, setLookupError] = useState('');
+  const [lookupLoading, setLookupLoading] = useState(false);
   const bottomRef = useRef(null);
   const textareaRef = useRef(null);
 
+  // Persist ticket ID across page reloads
+  useEffect(() => {
+    if (ticketId) localStorage.setItem('loopp_ticket_id', ticketId);
+  }, [ticketId]);
+
+  // Auto-resume on mount if a ticket was previously active
+  useEffect(() => {
+    const saved = localStorage.getItem('loopp_ticket_id');
+    if (saved) loadTicket(saved, true);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   useEffect(() => { bottomRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [messages, loading]);
+
+  const loadTicket = async (id, silent = false) => {
+    const normalized = id.trim().toUpperCase();
+    if (!normalized) return;
+    setLookupLoading(true);
+    setLookupError('');
+    try {
+      const res = await fetch(`${API}/api/chat/${normalized}`);
+      if (!res.ok) throw new Error('Ticket not found. Please check the number and try again.');
+      const data = await res.json();
+      setTicketId(data.ticket_id);
+      setStatus(data.status);
+      setResolution(data.resolution);
+      setMessages(data.messages);
+      setLookupInput('');
+    } catch (e) {
+      if (silent) {
+        localStorage.removeItem('loopp_ticket_id');
+      } else {
+        setLookupError(e.message);
+      }
+    } finally {
+      setLookupLoading(false);
+    }
+  };
 
   const send = async (text) => {
     const msg = (text || input).trim();
@@ -78,7 +118,9 @@ export default function CustomerChat() {
   };
 
   const startNew = () => {
+    localStorage.removeItem('loopp_ticket_id');
     setMessages([]); setTicketId(null); setStatus(null); setResolution(null); setInput('');
+    setLookupInput(''); setLookupError('');
   };
 
   const onKeyDown = (e) => {
@@ -136,6 +178,29 @@ export default function CustomerChat() {
                   <span style={{ fontSize: 11, color: 'var(--text-3)' }}>{s.text.slice(0, 48)}…</span>
                 </button>
               ))}
+            </div>
+
+            <div className="lookup-section">
+              <div className="lookup-divider"><span>or resume a previous conversation</span></div>
+              <div className="lookup-row">
+                <input
+                  className="lookup-input"
+                  type="text"
+                  placeholder="Enter ticket number (e.g. TKT-AB12CD34)"
+                  value={lookupInput}
+                  onChange={e => { setLookupInput(e.target.value); setLookupError(''); }}
+                  onKeyDown={e => e.key === 'Enter' && loadTicket(lookupInput)}
+                  disabled={lookupLoading}
+                />
+                <button
+                  className="btn-ghost"
+                  onClick={() => loadTicket(lookupInput)}
+                  disabled={!lookupInput.trim() || lookupLoading}
+                >
+                  {lookupLoading ? '…' : 'Load'}
+                </button>
+              </div>
+              {lookupError && <div className="lookup-error">{lookupError}</div>}
             </div>
           </div>
         )}

@@ -19,6 +19,7 @@ Configure via backend/.env:
 import json
 import os
 import time
+import traceback
 from typing import Any
 
 from dotenv import load_dotenv
@@ -271,6 +272,7 @@ def _run_gemini(conversation_history: list[dict]) -> dict:
                 result   = _dispatch_tool(tool_name, tool_inputs)
                 is_error = False
             except Exception as e:
+                traceback.print_exc()
                 result   = {"error": str(e)}
                 is_error = True
             tl = round((time.time() - t0) * 1000)
@@ -426,6 +428,7 @@ def _run_anthropic(conversation_history: list[dict]) -> dict:
                     result   = _dispatch_tool(block.name, block.input)
                     is_error = False
                 except Exception as e:
+                    traceback.print_exc()
                     result   = {"error": str(e)}
                     is_error = True
                 tl = round((time.time() - t0) * 1000)
