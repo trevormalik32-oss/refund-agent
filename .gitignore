@@ -1,0 +1,6 @@
+.env
+.venv/*
+.python-version
+start.sh
+node_modules/*
+__pycache__/*
