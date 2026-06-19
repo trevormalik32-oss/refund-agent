@@ -1,0 +1,425 @@
+{
+  "customers": [
+    {
+      "customer_id": "CUST001",
+      "name": "Alice Johnson",
+      "email": "alice.johnson@email.com",
+      "account_status": "active",
+      "membership_tier": "gold",
+      "orders": [
+        {
+          "order_id": "ORD-10021",
+          "date": "2026-06-01",
+          "items": [
+            {
+              "name": "Wireless Headphones Pro",
+              "sku": "WHP-500",
+              "price": 249.99,
+              "final_sale": false,
+              "category": "electronics"
+            }
+          ],
+          "total": 249.99,
+          "status": "delivered",
+          "delivery_date": "2026-06-06",
+          "refund_status": null
+        },
+        {
+          "order_id": "ORD-10045",
+          "date": "2025-04-01",
+          "items": [
+            {
+              "name": "Designer Silk Scarf",
+              "sku": "DSS-LTD",
+              "price": 89.99,
+              "final_sale": true,
+              "category": "apparel"
+            }
+          ],
+          "total": 89.99,
+          "status": "delivered",
+          "delivery_date": "2025-04-06",
+          "refund_status": null
+        }
+      ]
+    },
+    {
+      "customer_id": "CUST002",
+      "name": "Bob Martinez",
+      "email": "bob.martinez@email.com",
+      "account_status": "active",
+      "membership_tier": "silver",
+      "orders": [
+        {
+          "order_id": "ORD-10089",
+          "date": "2026-06-04",
+          "items": [
+            {
+              "name": "4K Smart TV 55\"",
+              "sku": "TV-4K55",
+              "price": 799.99,
+              "final_sale": false,
+              "category": "electronics"
+            }
+          ],
+          "total": 799.99,
+          "status": "delivered",
+          "delivery_date": "2026-06-06",
+          "refund_status": null
+        }
+      ]
+    },
+    {
+      "customer_id": "CUST003",
+      "name": "Carol White",
+      "email": "carol.white@email.com",
+      "account_status": "active",
+      "membership_tier": "bronze",
+      "orders": [
+        {
+          "order_id": "ORD-10102",
+          "date": "2025-03-10",
+          "items": [
+            {
+              "name": "Running Shoes",
+              "sku": "RS-2025",
+              "price": 119.99,
+              "final_sale": false,
+              "category": "footwear"
+            }
+          ],
+          "total": 119.99,
+          "status": "delivered",
+          "delivery_date": "2025-03-14",
+          "refund_status": null
+        }
+      ]
+    },
+    {
+      "customer_id": "CUST004",
+      "name": "David Kim",
+      "email": "david.kim@email.com",
+      "account_status": "active",
+      "membership_tier": "gold",
+      "orders": [
+        {
+          "order_id": "ORD-10155",
+          "date": "2026-06-08",
+          "items": [
+            {
+              "name": "Gaming Laptop RTX",
+              "sku": "GL-RTX40",
+              "price": 1299.99,
+              "final_sale": false,
+              "category": "electronics"
+            },
+            {
+              "name": "Gaming Mouse",
+              "sku": "GM-PRO",
+              "price": 59.99,
+              "final_sale": false,
+              "category": "electronics"
+            }
+          ],
+          "total": 1359.98,
+          "status": "delivered",
+          "delivery_date": "2026-06-14",
+          "refund_status": null
+        }
+      ]
+    },
+    {
+      "customer_id": "CUST005",
+      "name": "Emma Davis",
+      "email": "emma.davis@email.com",
+      "account_status": "suspended",
+      "membership_tier": "bronze",
+      "orders": [
+        {
+          "order_id": "ORD-10201",
+          "date": "2025-04-18",
+          "items": [
+            {
+              "name": "Yoga Mat Premium",
+              "sku": "YM-PRE",
+              "price": 45.99,
+              "final_sale": false,
+              "category": "sports"
+            }
+          ],
+          "total": 45.99,
+          "status": "delivered",
+          "delivery_date": "2025-04-22",
+          "refund_status": null
+        }
+      ]
+    },
+    {
+      "customer_id": "CUST006",
+      "name": "Frank Thompson",
+      "email": "frank.t@email.com",
+      "account_status": "active",
+      "membership_tier": "silver",
+      "orders": [
+        {
+          "order_id": "ORD-10245",
+          "date": "2025-01-05",
+          "items": [
+            {
+              "name": "Coffee Maker Deluxe",
+              "sku": "CMD-900",
+              "price": 189.99,
+              "final_sale": false,
+              "category": "appliances"
+            }
+          ],
+          "total": 189.99,
+          "status": "delivered",
+          "delivery_date": "2025-01-09",
+          "refund_status": null
+        }
+      ]
+    },
+    {
+      "customer_id": "CUST007",
+      "name": "Grace Lee",
+      "email": "grace.lee@email.com",
+      "account_status": "active",
+      "membership_tier": "gold",
+      "orders": [
+        {
+          "order_id": "ORD-10301",
+          "date": "2026-06-11",
+          "items": [
+            {
+              "name": "Air Purifier HEPA",
+              "sku": "APH-300",
+              "price": 329.99,
+              "final_sale": false,
+              "category": "appliances"
+            }
+          ],
+          "total": 329.99,
+          "status": "delivered",
+          "delivery_date": "2026-06-14",
+          "refund_status": null
+        }
+      ]
+    },
+    {
+      "customer_id": "CUST008",
+      "name": "Henry Wilson",
+      "email": "henry.w@email.com",
+      "account_status": "active",
+      "membership_tier": "bronze",
+      "orders": [
+        {
+          "order_id": "ORD-10345",
+          "date": "2025-05-10",
+          "items": [
+            {
+              "name": "Bluetooth Speaker",
+              "sku": "BTS-100",
+              "price": 79.99,
+              "final_sale": false,
+              "category": "electronics"
+            }
+          ],
+          "total": 79.99,
+          "status": "in_transit",
+          "delivery_date": null,
+          "refund_status": null
+        }
+      ]
+    },
+    {
+      "customer_id": "CUST009",
+      "name": "Isabella Brown",
+      "email": "isabella.b@email.com",
+      "account_status": "active",
+      "membership_tier": "silver",
+      "orders": [
+        {
+          "order_id": "ORD-10389",
+          "date": "2025-04-30",
+          "items": [
+            {
+              "name": "Winter Jacket Limited Ed.",
+              "sku": "WJL-FS",
+              "price": 299.99,
+              "final_sale": true,
+              "category": "apparel"
+            }
+          ],
+          "total": 299.99,
+          "status": "delivered",
+          "delivery_date": "2025-05-04",
+          "refund_status": null
+        }
+      ]
+    },
+    {
+      "customer_id": "CUST010",
+      "name": "James Anderson",
+      "email": "james.a@email.com",
+      "account_status": "active",
+      "membership_tier": "gold",
+      "orders": [
+        {
+          "order_id": "ORD-10420",
+          "date": "2025-05-28",
+          "items": [
+            {
+              "name": "Standing Desk Electric",
+              "sku": "SDE-PRO",
+              "price": 549.99,
+              "final_sale": false,
+              "category": "furniture"
+            }
+          ],
+          "total": 549.99,
+          "status": "delivered",
+          "delivery_date": "2025-06-02",
+          "refund_status": null
+        }
+      ]
+    },
+    {
+      "customer_id": "CUST011",
+      "name": "Karen Taylor",
+      "email": "karen.t@email.com",
+      "account_status": "active",
+      "membership_tier": "bronze",
+      "orders": [
+        {
+          "order_id": "ORD-10455",
+          "date": "2025-05-05",
+          "items": [
+            {
+              "name": "Instant Pot 8qt",
+              "sku": "IP-8QT",
+              "price": 99.99,
+              "final_sale": false,
+              "category": "appliances"
+            }
+          ],
+          "total": 99.99,
+          "status": "delivered",
+          "delivery_date": "2025-05-09",
+          "refund_status": "approved"
+        }
+      ]
+    },
+    {
+      "customer_id": "CUST012",
+      "name": "Liam Jackson",
+      "email": "liam.j@email.com",
+      "account_status": "active",
+      "membership_tier": "silver",
+      "orders": [
+        {
+          "order_id": "ORD-10501",
+          "date": "2026-06-07",
+          "items": [
+            {
+              "name": "Mechanical Keyboard TKL",
+              "sku": "MKT-RGB",
+              "price": 149.99,
+              "final_sale": false,
+              "category": "electronics"
+            }
+          ],
+          "total": 149.99,
+          "status": "delivered",
+          "delivery_date": "2026-06-12",
+          "refund_status": null
+        }
+      ]
+    },
+    {
+      "customer_id": "CUST013",
+      "name": "Maria Rodriguez",
+      "email": "maria.r@email.com",
+      "account_status": "active",
+      "membership_tier": "gold",
+      "orders": [
+        {
+          "order_id": "ORD-10545",
+          "date": "2025-05-18",
+          "items": [
+            {
+              "name": "Skincare Bundle Set",
+              "sku": "SBS-LUX",
+              "price": 189.99,
+              "final_sale": false,
+              "category": "beauty"
+            },
+            {
+              "name": "Perfume Limited Edition",
+              "sku": "PLE-FS",
+              "price": 220.0,
+              "final_sale": true,
+              "category": "beauty"
+            }
+          ],
+          "total": 409.99,
+          "status": "delivered",
+          "delivery_date": "2025-05-22",
+          "refund_status": null
+        }
+      ]
+    },
+    {
+      "customer_id": "CUST014",
+      "name": "Noah Harris",
+      "email": "noah.h@email.com",
+      "account_status": "active",
+      "membership_tier": "bronze",
+      "orders": [
+        {
+          "order_id": "ORD-10589",
+          "date": "2026-06-09",
+          "items": [
+            {
+              "name": "Drone Quadcopter 4K",
+              "sku": "DQ-4K",
+              "price": 399.99,
+              "final_sale": false,
+              "category": "electronics"
+            }
+          ],
+          "total": 399.99,
+          "status": "delivered",
+          "delivery_date": "2026-06-13",
+          "refund_status": null
+        }
+      ]
+    },
+    {
+      "customer_id": "CUST015",
+      "name": "Olivia Martinez",
+      "email": "olivia.m@email.com",
+      "account_status": "active",
+      "membership_tier": "silver",
+      "orders": [
+        {
+          "order_id": "ORD-10621",
+          "date": "2026-06-10",
+          "items": [
+            {
+              "name": "Smart Watch Series X",
+              "sku": "SWX-500",
+              "price": 449.99,
+              "final_sale": false,
+              "category": "electronics"
+            }
+          ],
+          "total": 449.99,
+          "status": "delivered",
+          "delivery_date": "2026-06-14",
+          "refund_status": null
+        }
+      ]
+    }
+  ]
+}

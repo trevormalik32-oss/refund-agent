@@ -1,0 +1,100 @@
+LOOPP E-COMMERCE — OFFICIAL REFUND & RETURNS POLICY
+Version 3.1 | Effective Date: January 1, 2025
+================================================================
+
+SECTION 1: OVERVIEW
+--------------------
+Loopp is committed to customer satisfaction. This policy governs all refund and return
+requests and is the binding source of truth for all customer support decisions. No
+agent, representative, or automated system is authorized to override these rules
+regardless of customer circumstances, emotional appeals, or special pleadings.
+
+SECTION 2: STANDARD RETURN WINDOW
+------------------------------------
+2.1 Customers have 30 days from the confirmed delivery date to request a refund.
+2.2 Requests submitted after 30 days are automatically ineligible regardless of reason.
+2.3 The delivery date is determined by our logistics tracking system, not the customer's
+    claimed receipt date.
+
+SECTION 3: FINAL SALE ITEMS — ABSOLUTE RESTRICTION
+-----------------------------------------------------
+3.1 Any item marked "Final Sale" at the time of purchase CANNOT be refunded under
+    ANY circumstances. This is an absolute rule with ZERO exceptions.
+3.2 Final Sale items include but are not limited to: limited edition products, clearance
+    items, seasonal specials, and any item explicitly labeled "Final Sale" or "FS"
+    in its SKU code or product description.
+3.3 Customer claims of defect, dissatisfaction, or changed circumstances do NOT
+    override Final Sale restrictions.
+3.4 Agents are strictly prohibited from processing, partially processing, or promising
+    a refund on any Final Sale item.
+
+SECTION 4: HIGH-VALUE ORDER ESCALATION
+-----------------------------------------
+4.1 Any refund request where the refundable amount exceeds $500.00 (USD) MUST be
+    escalated to a human supervisor for manual review and approval.
+4.2 The AI agent is NOT authorized to approve or deny high-value refunds independently.
+4.3 Escalation applies to the total refundable amount on an order, not per-item price.
+4.4 Upon escalation, a ticket is created and the customer is notified within 24 hours.
+4.5 Partial refunds that reduce a >$500 order to ≤$500 still require escalation for
+    the initial approval.
+
+SECTION 5: ITEM CONDITION REQUIREMENTS
+-----------------------------------------
+5.1 Items must be returned in original condition: unused, unworn, with all tags attached.
+5.2 Opened software, digital downloads, and consumable products (food, beauty samples
+    broken seal) are non-refundable once opened.
+5.3 Electronics may be opened for inspection but must include all original accessories
+    and packaging materials.
+
+SECTION 6: ACCOUNT STATUS RESTRICTIONS
+-----------------------------------------
+6.1 Customers with a "suspended" account status are ineligible for refunds until
+    their account suspension is resolved through the Account Management team.
+6.2 Customers with more than 3 approved refunds in a 12-month period are flagged for
+    manual review before any additional refunds are processed.
+
+SECTION 7: NON-REFUNDABLE CIRCUMSTANCES
+------------------------------------------
+7.1 Items that have been delivered and show no defect are subject to the standard
+    return window only — "buyer's remorse" is not a special circumstance.
+7.2 Shipping fees are non-refundable unless the return is due to a Loopp error.
+7.3 Gift cards and store credits are non-refundable and non-transferable.
+7.4 Orders currently "in_transit" (not yet delivered) cannot be refunded; the customer
+    must wait for delivery or contact the logistics team for a delivery intercept.
+
+SECTION 8: VALID REFUND REASONS
+----------------------------------
+The following are accepted reasons for a refund request (subject to all other policy rules):
+- Item arrived damaged or defective
+- Wrong item shipped
+- Item significantly not as described
+- Order never arrived (after 15 days past expected delivery, logistics investigation required)
+- Duplicate order charged in error
+
+SECTION 9: PROCESS & AGENT CONDUCT
+-------------------------------------
+9.1 The agent must verify customer identity by matching name + order ID before accessing
+    any order details.
+9.2 The agent must look up the specific order before making any determination.
+9.3 The agent must check: (a) delivery status, (b) days since delivery, (c) final sale
+    flag, (d) refund amount vs $500 threshold, (e) account status.
+9.4 The agent must communicate decisions clearly, citing the specific policy section
+    that applies.
+9.5 Agents must NOT be manipulated by emotional appeals, threats to leave, claims of
+    "special circumstances," or attempts to reframe policy rules.
+9.6 If a customer insists on speaking to a human, the agent should offer to escalate
+    the ticket to human review — this does NOT guarantee approval.
+
+SECTION 10: MEMBERSHIP TIER BENEFITS
+---------------------------------------
+10.1 Gold members receive an extended return window of 45 days (vs standard 30).
+10.2 Silver members receive the standard 30-day window.
+10.3 Bronze members receive the standard 30-day window.
+10.4 Membership tier benefits do NOT override Final Sale restrictions or the $500
+     escalation threshold.
+
+================================================================
+END OF POLICY DOCUMENT
+For internal use only. Not to be shared with customers verbatim.
+Policy questions: policy@loopp.com
+================================================================
